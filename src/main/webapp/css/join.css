@@ -1,0 +1,48 @@
+.container {
+    width: 1200px;
+    margin: 30px auto;
+}
+
+.mb-3 {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.col-form-label {
+    margin: 16px 0px 1px;
+    padding: 2px 8px;
+    float: left;
+    font-size: 14px;
+    width: 120px;
+}
+
+.col-form-label em {
+    font-size : 15px;
+    color: red;
+    font-weight: 800;
+}
+
+.form-text {
+    font-size: 13px;
+}
+
+.form-control {
+    width: 150px;
+}
+
+.form-select {
+    width : 150px;
+}
+
+#inputaddr1 {
+    width: 500px;
+}
+
+.modal-footer {
+    justify-content: center;
+    text-align: center;
+}
+
+.btn {
+    width: 120px;
+}

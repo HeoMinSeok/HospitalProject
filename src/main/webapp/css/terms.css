@@ -1,0 +1,31 @@
+.rounded {
+   padding-left: 35px;
+    max-width: 1000px;
+    max-height: 200px;
+}
+
+ul>li{
+    list-style: none;
+}
+
+.ch_agree {
+    text-align: center;
+    justify-content: center;
+    padding-right: -20px;
+    margin-bottom: 30px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.agr_context {
+    width: 100%;
+    height: 200px;
+    font-size: small;
+    justify-content: center;
+}
+
+.join_box {
+    padding: 10px 50px;
+}
+
+
