@@ -35,10 +35,10 @@
 	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 		<ul class="nav navbar-nav">
 			<li>
-			<a href="index.jsp">Home</a>
+			<a href="index.jsp">메인</a>
 			</li>
 			<li>
-			<a href="WayToComeView.jsp">Way to Come</a>
+			<a href="WayToComeView.jsp">#찾아오는 길</a>
 			</li>
 			<li>
 			<a href="page-sample.html">
@@ -47,18 +47,21 @@
 			<li>
 			<a href="contact.html">#시술 예약</a>
 			</li>
+			<li>
+				<a href="/ReviewBoard/BoardMain.jsp">#시술 후기</a>
+			</li>
 			<c:if test="${not empty sessionScope.UserName}">
 				<li>
 					<a>${sessionScope.UserName} 님</a>
 				</li>
 				<li>
-					<a href="logout">LOGOUT</a>
+					<a href="logout">로그아웃</a>
 				</li>
 			</c:if>
 			<!-- 세션에 사용자 정보가 없으면 로그인 버튼을 표시 -->
 			<c:if test="${empty sessionScope.UserName}">
 				<li>
-					<a href="LoginModal.jsp">LOGIN</a>
+					<a href="LoginModal.jsp">로그인</a>
 				</li>
 			</c:if>
 		</ul>
