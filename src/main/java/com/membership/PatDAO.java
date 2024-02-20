@@ -2,6 +2,9 @@ package com.membership;
 
 import com.common.DBCoonPool;
 
+import java.sql.Date;
+
+
 public class PatDAO extends DBCoonPool {
     public PatDAO() {
         super();
@@ -21,10 +24,11 @@ public class PatDAO extends DBCoonPool {
                 dto.setPat_id(rs.getString("pat_id"));
                 dto.setPat_pw(rs.getString("pat_pw"));
                 dto.setPat_name(rs.getString("pat_name"));
-                dto.setPat_gen(rs.getString("pat_gen"));
-                dto.setPat_jumin(rs.getString("pat_jumin"));
-                dto.setPat_addr(rs.getString("pat_addr"));
                 dto.setPat_phone(rs.getString("pat_phone"));
+                dto.setPat_birth(rs.getDate("pat_birth"));
+                dto.setPat_gen(rs.getString("pat_gen"));
+                dto.setPat_email(rs.getString("pat_email"));
+                dto.setPat_addr(rs.getString("pat_addr"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,8 +36,35 @@ public class PatDAO extends DBCoonPool {
         }
         return dto;
     }
+    public boolean addPatient(PatDTO patient) {
+        String sql = "INSERT INTO SCOTT.PATIENTS (PAT_NUM, PAT_ID, PAT_PW, PAT_NAME, PAT_PHONE, PAT_BIRTH, PAT_GEN, PAT_EMAIL, PAT_ADDR) " +
+                "VALUES (SCOTT.SEQ_BOARD_NUM.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            psmt = con.prepareStatement(sql);
+            psmt.setString(1, patient.getPat_id());
+            psmt.setString(2, patient.getPat_pw());
+            psmt.setString(3, patient.getPat_name());
+            psmt.setString(4, patient.getPat_phone());
+            psmt.setDate(5,   patient.getPat_birth());
+            psmt.setString(6, patient.getPat_gen());
+            psmt.setString(7, patient.getPat_email());
+            psmt.setString(8, patient.getPat_addr());
+
+            int rowsAffected = psmt.executeUpdate();
+
+            return rowsAffected > 0; // 회원가입이 성공했는지 여부를 반환
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("addPatient 오류");
+            return false;
+        }
+    }
+}
+
+
 //    public boolean isDuplicateUserId(String userId) {
 //        // 여기에 Patient 테이블에서 아이디가 중복되는지 확인하는 로직 작성
 //        // 중복되면 true, 중복되지 않으면 false 반환
 //    }
-}
+

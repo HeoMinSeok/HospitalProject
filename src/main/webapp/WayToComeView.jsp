@@ -91,27 +91,32 @@
 </header>
 <!-- Project Details Section -->
 <section id="single-project">
+  <h2>CONTACT US</h2>
   <div class="container content-section text-center">
     <div class="row">
-
-      <div class="col-lg-6">
-        <h2 style="border-bottom: solid black 2px" >찾아 오는 길</h2>
-        <i class="fa-solid fa-bus fa-2xl"></i> <b style="font-size: 20px">- 2호선 서면역 2번 출구 -> 도보 6분 소요</b>
+      <div class="col-md-6 contact-left">
+        <div id="map" style="width:100%;height:421.797px;"></div>
       </div>
 
-      <div class="col-lg-6">
-        <h2>STEPS OF PROJECT</h2>
-        <div id="map" style="width:100%;height:350px;"></div>
+      <div class="col-md-6 contact-right">
+        <div class="left-top">
+          <h4>Contact information</h4>
+          <p><i class="fa fa-calendar" aria-hidden="true"></i><strong>Monday - Friday <span class="dot">:</span></strong>9:30 AM to 6:30 PM</p>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i><strong class="p">address <span class="dot1">:</span></strong>부산광역시 부산진구 중앙대로 708 4층</p>
+          <p><i class="fa fa-phone" aria-hidden="true"></i><strong class="p1">phone <span class="dot2">:</span></strong>+040 2345 6789</p>
+          <p><i class="fa fa-envelope" aria-hidden="true"></i><strong class="p2">email <span class="dot3">:</span></strong><a href="mailto:minzino4825@gmail.com">minzino4825@gmail.com</a></p>
+          <p><i class="fa-solid fa-train-subway" aria-hidden="true"></i><strong class="p">지하철 <span class="dot1">:</span></strong>2호선 서면역 2번 출구 -> 도보 6분 소요</p>
+          <p><i class="fa-solid fa-bus" aria-hidden="true"></i><strong class="p">버스 <span class="dot1">:</span></strong>서면역.서면지하상가 정류장 -> 도보 3분 소요</p>
+        </div>
       </div>
-
     </div>
-    <div class="row" style="border-top: solid black 2px">
-      <p>
-        <a href="#" class="btnghost"><i class="fa fa-envelope"></i> Request similar project</a>
-        <i style="font-size:12px;margin-right:3px;"> or </i>
-        <a href="index.jsp#portfolio" class="btnghost"><i class="fa fa-camera"></i> Back to projects gallery</a>
-      </p>
-    </div>
+<%--    <div class="row">--%>
+<%--      <p>--%>
+<%--        <a href="#" class="btnghost"><i class="fa fa-envelope"></i> Request similar project</a>--%>
+<%--        <i style="font-size:12px;margin-right:3px;"> or </i>--%>
+<%--        <a href="index.jsp#portfolio" class="btnghost"><i class="fa fa-camera"></i> Back to projects gallery</a>--%>
+<%--      </p>--%>
+<%--    </div>--%>
   </div>
 </section>
 <!-- Footer -->
