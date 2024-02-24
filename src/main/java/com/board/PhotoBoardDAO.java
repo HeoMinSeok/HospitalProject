@@ -139,7 +139,7 @@ public class PhotoBoardDAO extends DBCoonPool {
             e.printStackTrace();
         }
     }
-    public boolean checkPassword(String uid, String rbNum, String inputPass) {
+    public boolean checkPassword(String rbNum, String inputPass) {
         boolean isPassword = false;
         try {
             String sql = "SELECT p.PAT_PW " +
@@ -147,15 +147,13 @@ public class PhotoBoardDAO extends DBCoonPool {
                     "JOIN scott.PATIENTS p ON rb.PAT_ID_FK = p.PAT_ID " +
                     "WHERE rb.RB_NUM = ?";
             psmt = con.prepareStatement(sql);
-            // Review_Board의 특정 게시물을 선택하고
-            // 그 게시물에 해당하는 작성자의 비밀번호를 Patinets 테이블에서 들고옴
             psmt.setString(1, rbNum);
             rs = psmt.executeQuery();
 
-            if(rs.next()){
+            if (rs.next()) {
                 String userPassword = rs.getString("PAT_PW");
                 System.out.println(userPassword);
-                if(inputPass.equals(userPassword))
+                if (inputPass.equals(userPassword))
                     isPassword = true;
             }
 
@@ -165,12 +163,12 @@ public class PhotoBoardDAO extends DBCoonPool {
         }
         return isPassword;
     }
-    public int deletePost(int rbNum) {
+    public int deletePost(String rbNum) {
         int result = 0;
         try {
             String sql = "DELETE FROM SCOTT.REVIEW_BOARD WHERE RB_NUM = ?";
             psmt = con.prepareStatement(sql);
-            psmt.setInt(1, rbNum);
+            psmt.setString(1, rbNum);
             result = psmt.executeUpdate();
         } catch (Exception e) {
             System.out.println("게시물 삭제 중 예외 발생");

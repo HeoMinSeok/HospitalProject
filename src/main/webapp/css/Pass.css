@@ -1,0 +1,113 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.box-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.box {
+    margin-bottom: 30px;
+    display: inline-block;
+    position: relative;
+}
+
+.box input {
+    padding: 5px 10px;
+    height: 45px;
+    font-size: 1em;
+    line-height: 45px;
+    border: 2px solid #ccc;
+    width: 400px;
+    outline: none;
+    background: #fff;
+    color: #a2a5a7;
+}
+
+.box input:focus + span {
+    width: 100%;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.box input:focus + span:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.box input:focus + span:after {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.box input + span {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 2px solid #0099ef;
+    border-right: 2px solid #0099ef;
+    width: calc(100% + 100px);
+    transform: translateX(-50px);
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition-property: opacity, width;
+    transition: 0.3s ease-out;
+}
+
+.box input + span:before,
+.box input + span:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 25px;
+    transition-property: top, bottom;
+    transition: 0.3s ease-out;
+    height: 2px;
+    width: calc(100% - 50px);
+    background: #0099ef;
+}
+
+.box input + span:before {
+    top: -30px;
+}
+
+.box input + span:after {
+    bottom: -30px;
+}
+
+button:hover {
+    background-color: #aaaaaa;
+}
+
+button {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: inline-block; /* 변경된 부분 */
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    cursor: pointer; /* 버튼 모양을 가진 요소에 커서를 포인터로 변경 */
+}

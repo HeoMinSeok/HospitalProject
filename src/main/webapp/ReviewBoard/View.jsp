@@ -24,22 +24,12 @@
 		<ul class="homeMenu">
 			<c:if test="${not empty sessionScope.UserName and sessionScope.UserId eq dto.patIdFk}">
 				<li><a href="#" class="li">수정하기</a></li>
-				<li><a href="#" class="li" onclick="openModalAndSetMode('delete', '${param.rbNum}'); return false;">삭제하기</a></li>
+				<li><a href="../pass?mode=delete&rbNum=${ param.rbNum }" class="li">삭제하기</a></li>
 				<li><a href="#" class="li">#</a></li>
 			</c:if>
 		</ul>
 	</div>
 </nav>
-<div id="passModal" class="modal">
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<h2>비밀번호 확인</h2>
-		<form id="passwordForm" name="writeFrm" method="post" action="../pass" onsubmit="return validateForm(this)">
-			<input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
-			<button type="button" onclick="openModalAndSendInfo('delete', '${param.rbNum}')">확인</button>
-		</form>
-	</div>
-</div>
 <section>
 	<div class="container" id="one">
 		<div class="first">

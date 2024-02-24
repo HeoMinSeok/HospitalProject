@@ -52,21 +52,21 @@ public class FileUtil {
         }
         return listFileName;
     }
-//    public static void deleteFile(HttpServletRequest req, String directory, String filename) {
-//        String sDir = req.getServletContext().getRealPath(directory);
-//        File file = new File(sDir + File.separator + filename);
-//        if(file.exists())
-//            file.delete();
-//        else {
-//            System.out.println("File not found");
-//        }
-//    }
-    public static void deleteFile(String filePath) {
-        File file = new File(filePath);
-        if (file.exists()) {
+    public static void deleteFile(HttpServletRequest req, String directory, String filename) {
+        String sDir = req.getServletContext().getRealPath(directory);
+        File file = new File(sDir + File.separator + filename);
+        if(file.exists())
             file.delete();
-        } else {
-            System.out.println("File not found: " + filePath);
+        else {
+            System.out.println("File not found");
         }
     }
+//    public static void deleteFile(String filePath) {
+//        File file = new File(filePath);
+//        if (file.exists()) {
+//            file.delete();
+//        } else {
+//            System.out.println("File not found: " + filePath);
+//        }
+//    }
 }
