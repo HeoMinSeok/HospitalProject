@@ -13,12 +13,19 @@
     </context-param>
     <context-param>
         <param-name>OracleId</param-name>
-        <param-value>scott</param-value>
+        <param-value>system</param-value>
     </context-param>
     <context-param>
         <param-name>OraclePwd</param-name>
-        <param-value>tiger</param-value>
-
+        <param-value>oracle</param-value>
+    </context-param>
+    <context-param>
+        <param-name>POSTS_PER_PAGE</param-name>
+        <param-value>10</param-value>
+    </context-param>
+    <context-param>
+        <param-name>PAGES_PER_BLOCK</param-name>
+        <param-value>5</param-value>
     </context-param>
     <jsp-config>
         <jsp-property-group>
@@ -26,4 +33,26 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
+
+    <servlet>
+        <servlet-name>ReviewBoardList</servlet-name>
+        <servlet-class>com.Controller.ListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewBoardList</servlet-name>
+        <url-pattern>/mvcboard/list.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReviewBoardWrite</servlet-name>
+        <servlet-class>com.Controller.WriteController</servlet-class>
+        <multipart-config>
+            <max-file-size>1048576</max-file-size>
+            <max-request-size>10485760</max-request-size>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewBoardWrite</servlet-name>
+        <url-pattern>/mvcboard/write.do</url-pattern>
+    </servlet-mapping>
+
 </web-app>

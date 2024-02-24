@@ -16,7 +16,11 @@
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"><link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+			integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+			crossorigin="anonymous" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 </head>
@@ -41,27 +45,29 @@
 			<a href="WayToComeView.jsp">#찾아오는 길</a>
 			</li>
 			<li>
-			<a href="page-sample.html">
+				<a href="#">
 				#시술 종류</a>
 			</li>
 			<li>
-			<a href="contact.html">#시술 예약</a>
+				<a href="../mvcboard/list.do">#시술 후기</a>
 			</li>
-			<li>
-				<a href="/ReviewBoard/BoardMain.jsp">#시술 후기</a>
-			</li>
+		</ul>
+		<ul class="nav navbar-nav">
 			<c:if test="${not empty sessionScope.UserName}">
 				<li>
-					<a>${sessionScope.UserName} 님</a>
+					<a href="#">#시술 예약</a>
 				</li>
-				<li>
-					<a href="logout">로그아웃</a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.UserName} 님 <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">My profile</a></li>
+						<li><a href="logout">Logout</a></li>
+					</ul>
 				</li>
 			</c:if>
-			<!-- 세션에 사용자 정보가 없으면 로그인 버튼을 표시 -->
 			<c:if test="${empty sessionScope.UserName}">
 				<li>
-					<a href="LoginModal.jsp">로그인</a>
+					<a href="#" data-toggle="modal" data-target="#loginModal">LOGIN</a> <!-- 로그인 버튼 클릭 시 모달 띄우기 -->
 				</li>
 			</c:if>
 		</ul>
@@ -70,6 +76,34 @@
 </div>
 <!-- /.container -->
 </nav>
+<div class="modal fade" tabindex="-1" id="loginModal">
+	<div class="modal-dialog" role="document" style="position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); width: 20% ">
+		<div class="modal-content" style="padding: 20px; height: 100%">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" style="color: black; font-size: 30px; text-align: center;">로그인</h4>
+			</div>
+			<form action="/login" class="form" method="post" onsubmit="return validateForm(this);">
+				<div class="modal-body" style="padding: 20px">
+					<div class="form-group" style="padding-bottom: 20px">
+						<label style="color: black; font-size: 18px">아이디</label>
+						<input type="text" class="form-control" name="user_id" id="user_id">
+					</div>
+					<div class="form-group">
+						<label style="color: black; font-size: 18px">비밀번호</label>
+						<input type="password" class="form-control" name="password" id="password">
+					</div>
+					<span class="forgot-password" style="color: black"><a href="#">아이디/비밀번호 찾기</a></span>
+				</div>
+				<div class="modal-footer" style="padding: 30px">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: darkgray; color: white; border: none; border-radius: 10px;">로그인</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='modal.jsp'" style="background-color: dodgerblue; color: white; border: none; border-radius: 10px;">회원가입</button>
+				</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- Intro Header -->
 <header class="intro">
 <div class="intro-body">
@@ -219,6 +253,33 @@
 <!-- Plugin JavaScript -->
 <script src="js/jquery.easing.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="js/theme.js"></script>
+<script>
+	$(document).ready(function (){
+		let errMsg = "${LoginErrMsg}";
+
+		console.log("err확인",errMsg);
+		if(errMsg != ""){
+			$('#loginModal').modal('show')
+		}
+	})
+
+	function validateForm(form) {
+		var id = form.id.value;
+		var password = form.password.value;
+
+		if (id == "" || password == "") {
+			alert("ID와 비밀번호를 입력해주세요.");
+			return false;
+		}
+		return true; // 유효성 검사 통과
+	}
+</script>
+<%-- 에러 메시지를 표시하는 부분 --%>
+<% String loginErrMsg = (String) request.getAttribute("LoginErrMsg"); %>
+<% if (loginErrMsg != null) { %>
+<script>
+	alert('<%= loginErrMsg %>');
+</script>
+<% } %>
 </body>
 </html>

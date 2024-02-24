@@ -14,6 +14,64 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <style>
+        #top{
+            top: -25%
+        }
+        .box1{
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            color: gray;
+            border:none;
+            position: absolute; left: 10%;
+            text-align: center;
+            border-radius: 25px;
+        }
+        .box2{
+            width: 300px;
+            height: 400px;
+            border:none;
+            background-color: white;
+            color: gray;
+            position: absolute; left: 38.3%;
+            text-align: center;
+            border-radius: 25px;
+        }
+        .box3{
+            width: 300px;
+            height: 400px;
+            border:none;
+            background-color: white;
+            color: gray;
+            position: absolute;right: 10%;
+            text-align: center;
+            border-radius: 25px;
+        }
+        .brand-heading1{
+            font-size:60px;
+            margin-top:90px;
+            margin-bottom:60px;
+            border-top:2px solid #fff;
+            border-bottom:2px solid #fff;
+            padding:10px 0;
+
+        }
+        .intro .intro-body .brand-heading2 {
+            font-size:60px;
+            margin-top:80px;
+            margin-bottom:20px;
+            display:inline-block;
+            padding:10px 0;
+        }
+        .intro .intro-body .brand-heading3 {
+            font-size:60px;
+            margin-top:120px;
+            margin-bottom:20px;
+            display:inline-block;
+            padding:10px 0;
+        }
+    </style>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation -->
@@ -47,13 +105,25 @@
 
 <header class="intro">
     <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading">PONI </h1>
-                </div>
+        <div class="col-md-8 col-md-offset-2" id="top">
+            <c:if test="${sessionScope.role.equals('Doctors')}">
+                <h1 class="brand-heading1">PONI 의사 페이지</h1>
+            </c:if>
+            <c:if test="${sessionScope.role.equals('Coordinator')}">
+                <h1 class="brand-heading1">PONI 관리자 페이지</h1>
+            </c:if>
+
+            <div class="box1" onclick="location.href='/MemberList.do';">
+                <h1 class="brand-heading2">환자<br>목록<br>출력</h1>
+            </div>
+            <div class="box2" onclick="location.href='/AdminView/DocterList.jsp';">
+                <h1 class="brand-heading2">의사<br>목록<br>출력</h1>
+            </div>
+            <div class="box3" onclick="location.href='MemberList2.do';">
+                <h1 class="brand-heading2">관리자<br>목록<br>출력</h1>
             </div>
         </div>
+
     </div>
 </header>
 <footer>
@@ -66,4 +136,3 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>
-<script src="js/theme.js"></script>

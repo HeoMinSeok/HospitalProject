@@ -1,6 +1,7 @@
 package com.Controller;
 
 import com.membership.*;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -39,15 +40,15 @@ public class LoginController extends HttpServlet {
             loginMessage = "환자로 로그인하셨습니다.";
             redirectPage = "index.jsp";
         } else {
-            String errorScript = "<script>alert('아이디 또는 비밀번호가 일치하지 않습니다.'); "
-                    + "window.location.href='LoginModal.jsp';</script>";
-            response.getWriter().write(errorScript);
+            request.setAttribute("LoginErrMsg", "아이디/패스워드를 확인하세요");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         }
 
         HttpSession session = request.getSession();
         session.setAttribute("UserId", userId);
         session.setAttribute("UserName", getUserName(coodDTO, docDTO, patDTO));
+        session.setAttribute("UserNum", getUserNum(coodDTO, docDTO, patDTO));
 
         String successScript = "<script>alert('" + loginMessage + "');"
                 + "window.location.href='" + redirectPage + "';</script>";
@@ -63,7 +64,17 @@ public class LoginController extends HttpServlet {
         } else if (patDTO.getPat_name() != null) {
             return patDTO.getPat_name();
         }
-        return ""; // 예외 처리: 이름이 없는 경우
+        return "";
+    }
+    private String getUserNum(CoodDTO coodDTO, DocDTO docDTO, PatDTO patDTO) {
+        if (coodDTO != null && coodDTO.getCood_num() != 0) {
+            return String.valueOf(coodDTO.getCood_num());
+        } else if (docDTO != null && docDTO.getDoc_num() != 0) {
+            return String.valueOf(docDTO.getDoc_num());
+        } else if (patDTO != null && patDTO.getPat_num() != 0) {
+            return String.valueOf(patDTO.getPat_num());
+        }
+        return ""; // 예외 처리: DTO가 null이거나 번호가 없는 경우
     }
 }
 

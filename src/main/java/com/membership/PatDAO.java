@@ -62,9 +62,3 @@ public class PatDAO extends DBCoonPool {
     }
 }
 
-
-//    public boolean isDuplicateUserId(String userId) {
-//        // 여기에 Patient 테이블에서 아이디가 중복되는지 확인하는 로직 작성
-//        // 중복되면 true, 중복되지 않으면 false 반환
-//    }
-

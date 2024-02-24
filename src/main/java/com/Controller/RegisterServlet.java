@@ -14,49 +14,7 @@ import java.text.SimpleDateFormat;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String userId = req.getParameter("userId");
-//        String password = req.getParameter("password");
-//        String name = req.getParameter("name");
-//        String gender = req.getParameter("gender");
-//        String birthdayStr = formatBirthday(req.getParameter("yy"), req.getParameter("mm"), req.getParameter("dd")); // 생년월일 형식 변환
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        Date birthday = null;
-//        try {
-//            birthday = (Date) dateFormat.parse(birthdayStr);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        String addr = req.getParameter("addr1");
-//        String tel1 = req.getParameter("tel1");
-//        String tel2 = req.getParameter("tel2");
-//        String tel3 = req.getParameter("tel3");
-//        String phone = tel1 + tel2 + tel3;
-//        String email1 = req.getParameter("email1");
-//        String email2 = req.getParameter("email2");
-//        String emailDomain = req.getParameter("emailDomain");
-//        String email = email1 + "@" + email2 + "." + emailDomain;
-//
-//
-//        if ("남자".equals(gender)) {
-//            gender = "Male";
-//        } else if ("여자".equals(gender)) {
-//            gender = "Female";
-//        }
-//
-//        PatDTO dto = new PatDTO(userId, password, name, phone, birthdayStr, gender, email, addr);
-//        PatDAO dao = new PatDAO();
-//        boolean success = dao.addPatient(dto);
-//
-//        if (success) {
-//            resp.setContentType("text/html;charset=UTF-8");
-//            resp.getWriter().println("<script>alert('가입 성공'); location.href='index.jsp';</script>");
-//        } else {
-//            // 회원가입 실패 시 다시 회원가입 폼으로 이동
-//            resp.setContentType("text/html;charset=UTF-8");
-//            resp.getWriter().println("<script>alert('가입 실패: DB 오류'); location.href='join.jsp';</script>");
-//        }
-//    }
+
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String userId = req.getParameter("userId");
     String password = req.getParameter("password");

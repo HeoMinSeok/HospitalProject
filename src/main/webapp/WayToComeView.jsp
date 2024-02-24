@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Neptune - Free Bootstrap Theme by WowThemes.net</title>
+  <title>찾아오는 길</title>
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -33,36 +33,41 @@
         <i class="fa fa-bars"></i>
       </button>
       <a class="navbar-brand page-scroll" href="index.jsp">
-        ARIES
-      </a>
+        PONI </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="index.jsp" class="link">Home</a>
+          <a href="index.jsp">메인</a>
         </li>
         <li>
-          <a href="WayToComeView.jsp" class="link">Way To Come</a>
+          <a href="WayToComeView.jsp">#찾아오는 길</a>
         </li>
         <li>
-          <a href="page-sample.html" class="link">Page Sample</a>
+          <a href="#">
+            #시술 종류</a>
         </li>
         <li>
-          <a href="contact.html" class="link">Hire me</a>
+          <a href="../mvcboard/list.do">#시술 후기</a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav">
         <c:if test="${not empty sessionScope.UserName}">
           <li>
-            <a>${sessionScope.UserName} 님</a>
+            <a href="#">#시술 예약</a>
           </li>
-          <li>
-            <a href="logout" class="link">LOGOUT</a>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.UserName} 님 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">My profile</a></li>
+              <li><a href="logout">Logout</a></li>
+            </ul>
           </li>
         </c:if>
-        <!-- 세션에 사용자 정보가 없으면 로그인 버튼을 표시 -->
         <c:if test="${empty sessionScope.UserName}">
           <li>
-            <a href="LoginModal.jsp" class="link">LOGIN</a>
+            <a href="#" data-toggle="modal" data-target="#loginModal">LOGIN</a> <!-- 로그인 버튼 클릭 시 모달 띄우기 -->
           </li>
         </c:if>
       </ul>
@@ -71,6 +76,35 @@
   </div>
   <!-- /.container -->
 </nav>
+<div class="modal fade" tabindex="-1" id="loginModal">
+  <div class="modal-dialog" role="document" style="position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); width: 20% ">
+    <div class="modal-content" style="padding: 20px; height: 100%">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" style="color: black; font-size: 30px; text-align: center;">로그인</h4>
+      </div>
+      <input type="hidden" id="redirectURLInput" name="redirectURL" value="" />
+      <form action="/login" class="form" method="post" onsubmit="return validateForm(this);">
+        <div class="modal-body" style="padding: 20px">
+          <div class="form-group" style="padding-bottom: 20px">
+            <label style="color: black; font-size: 18px">아이디</label>
+            <input type="text" class="form-control" name="user_id" id="user_id">
+          </div>
+          <div class="form-group">
+            <label style="color: black; font-size: 18px">비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password">
+          </div>
+          <span class="forgot-password" style="color: black"><a href="#">아이디/비밀번호 찾기</a></span>
+        </div>
+        <div class="modal-footer" style="padding: 30px">
+          <button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: darkgray; color: white; border: none; border-radius: 10px;">로그인</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='modal.jsp'" style="background-color: dodgerblue; color: white; border: none; border-radius: 10px;">회원가입</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- Intro Header -->
 <header class="intro">
   <div class="intro-body">
@@ -91,13 +125,13 @@
 </header>
 <!-- Project Details Section -->
 <section id="single-project">
-  <h2>CONTACT US</h2>
+
   <div class="container content-section text-center">
+    <h2 align="center">CONTACT US</h2>
     <div class="row">
       <div class="col-md-6 contact-left">
         <div id="map" style="width:100%;height:421.797px;"></div>
       </div>
-
       <div class="col-md-6 contact-right">
         <div class="left-top">
           <h4>Contact information</h4>
@@ -110,13 +144,6 @@
         </div>
       </div>
     </div>
-<%--    <div class="row">--%>
-<%--      <p>--%>
-<%--        <a href="#" class="btnghost"><i class="fa fa-envelope"></i> Request similar project</a>--%>
-<%--        <i style="font-size:12px;margin-right:3px;"> or </i>--%>
-<%--        <a href="index.jsp#portfolio" class="btnghost"><i class="fa fa-camera"></i> Back to projects gallery</a>--%>
-<%--      </p>--%>
-<%--    </div>--%>
   </div>
 </section>
 <!-- Footer -->
@@ -134,7 +161,6 @@
 <!-- Plugin JavaScript -->
 <script src="js/jquery.easing.min.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="js/theme.js"></script>
 <script>
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
           mapOption = {
