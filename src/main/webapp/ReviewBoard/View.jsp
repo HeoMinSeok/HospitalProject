@@ -23,9 +23,8 @@
 		<a href="../index.jsp" style="margin-left: 15px">PONI</a>
 		<ul class="homeMenu">
 			<c:if test="${not empty sessionScope.UserName and sessionScope.UserId eq dto.patIdFk}">
-				<li><a href="#" class="li">수정하기</a></li>
+				<li><a href="../pass?mode=edit&rbNum=${ param.rbNum }" class="li">수정하기</a></li>
 				<li><a href="../pass?mode=delete&rbNum=${ param.rbNum }" class="li">삭제하기</a></li>
-				<li><a href="#" class="li">#</a></li>
 			</c:if>
 		</ul>
 	</div>

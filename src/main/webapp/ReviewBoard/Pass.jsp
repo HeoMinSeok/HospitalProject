@@ -5,14 +5,7 @@
     <title>PONI</title>
     <link rel="stylesheet" href="../css/Pass.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script type="text/javascript">
-      function validateForm(form){
-        if(form.password.value === "") {
-          alert("비밀번호를 입력하세요.");
-          form.password.focus();
-          return false;
-        }
-      }
+    ㅊ
     </script>
 </head>
 <body>

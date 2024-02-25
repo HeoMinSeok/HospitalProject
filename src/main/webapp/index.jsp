@@ -51,12 +51,12 @@
 			<li>
 				<a href="../mvcboard/list.do">#시술 후기</a>
 			</li>
+			<li>
+				<a href="#" onclick="checkLoginAndRedirect();">#시술 예약</a>
+			</li>
 		</ul>
 		<ul class="nav navbar-nav">
 			<c:if test="${not empty sessionScope.UserName}">
-				<li>
-					<a href="#">#시술 예약</a>
-				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.UserName} 님 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -281,5 +281,15 @@
 	alert('<%= loginErrMsg %>');
 </script>
 <% } %>
+<script>
+	function checkLoginAndRedirect() {
+		var isLoggedIn = <%= session.getAttribute("UserName") != null %>;
+		if (!isLoggedIn) {
+			alert("로그인 후에 예약 가능합니다.");
+		} else {
+			location.href = '../Appoint';
+		}
+	}
+</script>
 </body>
 </html>

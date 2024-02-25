@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
 
         if (coodDTO.getCood_id() != null || coodDTO.getCood_pw() != null) {
             loginMessage = "관리자로 로그인하셨습니다.";
-            redirectPage = "AdminHome.jsp";
+            redirectPage = "../AdminPage/AdminMain.jsp";
         } else if (docDTO.getDoc_id() != null || docDTO.getDoc_pw() != null) {
             loginMessage = "의사로 로그인하셨습니다.";
             redirectPage = "AdminHome.jsp";

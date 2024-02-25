@@ -1,6 +1,7 @@
 package com.board;
 
 import com.common.DBCoonPool;
+import jakarta.servlet.http.HttpSession;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -181,6 +182,28 @@ public class PhotoBoardDAO extends DBCoonPool {
                     e.printStackTrace();
                 }
             }
+        }
+        return result;
+    }
+    public int updatePost(PhotoBoardDTO dto) {
+        int result = 0;
+        try{
+            String sql = "UPDATE SCOTT.REVIEW_BOARD "
+                    + "SET RB_TITLE=?, RB_CONTENTS=?, RB_OFILE=?, RB_SFILE=? "
+                    + "WHERE RB_NUM=? ";
+
+            psmt = con.prepareStatement(sql);
+            psmt.setString(1, dto.getRbTitle());
+            psmt.setString(2, dto.getRbContents());
+            psmt.setString(3, dto.getRbOfile());
+            psmt.setString(4, dto.getRbSfile());
+            psmt.setString(5, dto.getRbNum());
+
+            result = psmt.executeUpdate();
+        }
+        catch (Exception e) {
+            System.out.println("게시물 수정 중 예외 발생");
+            e.printStackTrace();
         }
         return result;
     }
