@@ -1,8 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@include file="BoardHeader.jsp"%>--%>
-<%--<button type="button" onclick="checkLoginAndRedirect();">글쓰기</button>--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,23 +12,32 @@
 <header style="text-align: center;">
     <nav>
         <ul style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px; list-style: none;">
-            <li style="flex: 1;"><a href="#" style="text-align: center; font-size: 40px">HOME</a></li>
-            <li class="isLogin" style="font-size: 25px">
-                <c:if test="${empty sessionScope.UserName}">
-                    <button class="writeReview" type="button" onclick="checkLoginAndRedirect();">글쓰기</button>
-                    <a href="#" data-toggle="modal" data-target="#loginModal">로그인</a>
-                </c:if>
-                <c:if test="${not empty sessionScope.UserName}">
-                    <div class="dropdown">
-                        <button type="button" onclick="checkLoginAndRedirect();">글쓰기</button>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.UserName} 님 <b class="caret"></b></a>
-                        <ul class="dropdown-menu" >
-                            <li><a href="#" >프로필</a></li>
-                            <li><a href="logout" >로그아웃</a></li>
-                        </ul>
-                    </div>
-                </c:if>
+            <li>
+                <a href="../index.jsp" class="loader"></a>
             </li>
+
+            <li class="isLogin">
+                <c:if test="${empty sessionScope.UserName}">
+                <button class="writeReview" type="button" onclick="checkLoginAndRedirect();" >
+                    <span class="icon1"></span> </button><!-- 아이콘을 넣을 요소 -->
+
+                <a href="#" data-toggle="modal" data-target="#loginModal" style="font-size: 18px; color: black">
+                    <span class="icon2"></span> <!-- 아이콘을 넣을 요소 -->
+                </a>
+                </c:if>
+
+                <c:if test="${not empty sessionScope.UserName}">
+                <div class="dropdown">
+                    <button class="writeReview" type="button" onclick="checkLoginAndRedirect();">
+                        <span class="icon1"></span></button>
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 35px; font-weight: bolder; color: black">${sessionScope.UserName} 님 <b class="caret"></b></a>
+                    <ul class="dropdown-menu" >
+                        <li><a href="#" style="font-size: 15px">프로필</a></li>
+                        <li><a href="logout" style="font-size: 15px">로그아웃</a></li>
+                    </ul>
+                </div>
+                </c:if>
         </ul>
     </nav>
 </header>
@@ -59,7 +66,6 @@
                     <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='modal.jsp'" style="background-color: dodgerblue; color: white; border: none; border-radius: 10px;">회원가입</button>
                 </div>
             </form>
-            &lt;%&ndash;<span class="agreement" style="color: black; "><a href="#">Learn user licence agreement</a></span>&ndash;%&gt;
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
@@ -67,7 +73,7 @@
     <c:forEach var="board" items="${ boardLists }">
     <div id="gallery">
         <figure>
-            <a href="../view?rbNum=${ board.rbNum }" onclick="reload();">
+            <a href="../view?rb_num=${ board.rbNum }" onclick="reload();">
                 <img src="../uploads/${board.rbSfile}" style="width: 100%">
             </a>
             <figcaption>${ board.patNameFk }</figcaption>

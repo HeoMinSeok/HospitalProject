@@ -29,8 +29,8 @@ public class ListController extends HttpServlet {
         int totalCount = dao.selectCount(map);
         ServletContext app = getServletContext();
 
-        int pageSize = Integer.parseInt(app.getInitParameter("POSTS_PER_PAGE"));
-        int blockPage = Integer.parseInt(app.getInitParameter("PAGES_PER_BLOCK"));
+        int pageSize = Integer.parseInt(app.getInitParameter("POST_PER_PAGE"));
+        int blockPage = Integer.parseInt(app.getInitParameter("POST_PER_BLOCK"));
 
         int pageNum = 1;
         String pageTemp = req.getParameter("pageNum");

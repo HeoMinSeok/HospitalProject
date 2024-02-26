@@ -45,22 +45,22 @@
           <a href="WayToComeView.jsp">#찾아오는 길</a>
         </li>
         <li>
-          <a href="#">
+          <a href="Treatment/TypeList.jsp">
             #시술 종류</a>
         </li>
         <li>
           <a href="../mvcboard/list.do">#시술 후기</a>
         </li>
+        <li>
+          <a href="#" onclick="checkLoginAndRedirect()">#시술 예약</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav">
         <c:if test="${not empty sessionScope.UserName}">
-          <li>
-            <a href="#">#시술 예약</a>
-          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.UserName} 님 <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">My profile</a></li>
+              <li><a href="MyProfile/MyPage.jsp">My profile</a></li>
               <li><a href="logout">Logout</a></li>
             </ul>
           </li>
@@ -123,9 +123,8 @@
     </div>
   </div>
 </header>
-<!-- Project Details Section -->
-<section id="single-project">
 
+<section id="single-project">
   <div class="container content-section text-center">
     <h2 align="center">CONTACT US</h2>
     <div class="row">
@@ -141,12 +140,13 @@
           <p><i class="fa fa-envelope" aria-hidden="true"></i><strong class="p2"> email <span class="dot3">: </span></strong><a href="mailto:minzino4825@gmail.com">minzino4825@gmail.com</a></p>
           <p><i class="fa-solid fa-train-subway" aria-hidden="true"></i><strong class="p"> 지하철 <span class="dot1">: </span></strong>2호선 서면역 2번 출구 -> 도보 6분 소요</p>
           <p><i class="fa-solid fa-bus" aria-hidden="true"></i><strong class="p"> 버스 <span class="dot1">: </span></strong>서면역, 서면 지하상가 정류장 -> 도보 3분 소요</p>
+
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Footer -->
+
 <footer>
   <div class="container text-center">
     <p class="credits">
@@ -198,6 +198,16 @@
       map.setCenter(coords);
     }
   });
+</script>
+<script>
+  function checkLoginAndRedirect() {
+    var isLoggedIn = <%= session.getAttribute("UserName") != null %>;
+    if (!isLoggedIn) {
+      alert("로그인 후에 예약 가능합니다.");
+    } else {
+      location.href = '../Reservation/Appoint.do';
+    }
+  }
 </script>
 </body>
 </html>

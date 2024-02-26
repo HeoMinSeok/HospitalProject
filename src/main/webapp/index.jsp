@@ -3,26 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>PONI 성형외과</title>
-<!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link href="css/theme.css" rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"><link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-			integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
-			crossorigin="anonymous" />
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>PONI 성형외과</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="css/theme.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"><link
+				rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+				integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+				crossorigin="anonymous" />
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation -->
@@ -45,14 +45,14 @@
 			<a href="WayToComeView.jsp">#찾아오는 길</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="Treatment/TypeList.jsp">
 				#시술 종류</a>
 			</li>
 			<li>
 				<a href="../mvcboard/list.do">#시술 후기</a>
 			</li>
 			<li>
-				<a href="#" onclick="checkLoginAndRedirect();">#시술 예약</a>
+				<a href="#" onclick="checkLoginAndRedirect()">#시술 예약</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav">
@@ -60,7 +60,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.UserName} 님 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">My profile</a></li>
+						<li><a href="MyProfile/MyPage.jsp">My profile</a></li>
 						<li><a href="logout">Logout</a></li>
 					</ul>
 				</li>
@@ -83,7 +83,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" style="color: black; font-size: 30px; text-align: center;">로그인</h4>
 			</div>
-			<form action="/login" class="form" method="post" onsubmit="return validateForm(this);">
+			<form action="../login" class="form" method="post" onsubmit="return validateForm(this);">
 				<div class="modal-body" style="padding: 20px">
 					<div class="form-group" style="padding-bottom: 20px">
 						<label style="color: black; font-size: 18px">아이디</label>
@@ -139,70 +139,70 @@
 </div>
 </section>
 <section id="portfolio">
-<div class="gallery">
-	<ul>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=1" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=2" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=3" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a class="image" href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=4" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=5" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=6" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=7" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=8" alt="">
-		</a>
-		</li>
-				<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=10" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=11" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=12" alt="">
-		</a>
-		</li>
-		<li class="col-md-3">
-		<a href="portfolio-item.html">
-		<img src="http://unsplash.it/680/380?random=13" alt="">
-		</a>
-		</li>
-	</ul>
-</div>
+	<div class="gallery">
+		<ul>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/eyes.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/lip3.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/lip.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/lip2.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/nose1.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/nose2.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/nose3.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/breast1.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/total.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/total2.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/total3.png" alt="">
+				</a>
+			</li>
+			<li class="col-md-3">
+				<a href="Treatment/TypeList.jsp">
+					<img src="img/breast2.png" alt="">
+				</a>
+			</li>
+		</ul>
+	</div>
 </section>
 <!-- Contact Section -->
 <section id="contact">
@@ -287,7 +287,7 @@
 		if (!isLoggedIn) {
 			alert("로그인 후에 예약 가능합니다.");
 		} else {
-			location.href = '../Appoint';
+			location.href = '../Reservation/Appoint.do';
 		}
 	}
 </script>

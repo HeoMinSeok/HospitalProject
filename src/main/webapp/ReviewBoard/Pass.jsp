@@ -5,8 +5,6 @@
     <title>PONI</title>
     <link rel="stylesheet" href="../css/Pass.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    ㅊ
-    </script>
 </head>
 <body>
 <form name="writeFrm" method="post" action="../pass" onsubmit="return validateForm(this);">

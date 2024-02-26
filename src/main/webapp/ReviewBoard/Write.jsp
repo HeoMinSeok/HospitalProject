@@ -17,7 +17,8 @@
     <input type="text" class="input" placeholder="작성자" value="${ sessionScope.UserName }">
     <input type="text" class="input" placeholder="제목" name="title">
     <textarea name="content" class="input" placeholder="내용"></textarea>
-    <button type="submit">작성 완료</button>
+    <button type="submit">완료</button>
+    <button type="button" onclick="location.href='../mvcboard/list.do'">취소</button>
 </form>
 </body>
 <script>

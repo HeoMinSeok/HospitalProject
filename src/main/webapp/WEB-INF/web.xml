@@ -20,11 +20,11 @@
         <param-value>oracle</param-value>
     </context-param>
     <context-param>
-        <param-name>POSTS_PER_PAGE</param-name>
+        <param-name>POST_PER_PAGE</param-name>
         <param-value>10</param-value>
     </context-param>
     <context-param>
-        <param-name>PAGES_PER_BLOCK</param-name>
+        <param-name>POST_PER_BLOCK</param-name>
         <param-value>5</param-value>
     </context-param>
     <jsp-config>
@@ -53,6 +53,82 @@
     <servlet-mapping>
         <servlet-name>ReviewBoardWrite</servlet-name>
         <url-pattern>/mvcboard/write.do</url-pattern>
+    </servlet-mapping>
+
+    <!--    회원 목록 조회 환자/의사/관리자-->
+    <servlet>
+        <servlet-name>PatListController</servlet-name>
+        <servlet-class>com.Controller.MemberListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatListController</servlet-name>
+        <url-pattern>/AdminPage/PatList.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DocListController</servlet-name>
+        <servlet-class>com.Controller.MemberListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DocListController</servlet-name>
+        <url-pattern>/AdminPage/DocList.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CoodListController</servlet-name>
+        <servlet-class>com.Controller.MemberListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CoodListController</servlet-name>
+        <url-pattern>/AdminPage/CoodList.do</url-pattern>
+    </servlet-mapping>
+    <!--    회원 정보 수정 환자/의사/관리자-->
+    <servlet>
+        <servlet-name>PatUpdate</servlet-name>
+        <servlet-class>com.Controller.MemberUpdateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatUpdate</servlet-name>
+        <url-pattern>/AdminPage/PatUpdate.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DocUpdate</servlet-name>
+        <servlet-class>com.Controller.MemberUpdateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DocUpdate</servlet-name>
+        <url-pattern>/AdminPage/DocUpdate.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CoodUpdate</servlet-name>
+        <servlet-class>com.Controller.MemberUpdateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CoodUpdate</servlet-name>
+        <url-pattern>/AdminPage/CoodUpdate.do</url-pattern>
+    </servlet-mapping>
+    <!--    회원 정보 삭제 환자/의사/관리자-->
+    <servlet>
+        <servlet-name>PatDelete</servlet-name>
+        <servlet-class>com.Controller.PatDeleteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatDelete</servlet-name>
+        <url-pattern>/AdminPage/PatDelete.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DocDelete</servlet-name>
+        <servlet-class>com.Controller.DocDeleteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DocDelete</servlet-name>
+        <url-pattern>/AdminPage/DocDelete.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CoodDelete</servlet-name>
+        <servlet-class>com.Controller.CoodDeleteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CoodDelete</servlet-name>
+        <url-pattern>/AdminPage/CoodDelete.do</url-pattern>
     </servlet-mapping>
 
 </web-app>

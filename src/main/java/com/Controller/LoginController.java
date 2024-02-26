@@ -29,23 +29,26 @@ public class LoginController extends HttpServlet {
 
         String loginMessage = ""; // 로그인 메시지 초기화
         String redirectPage = ""; // 리다이렉트할 페이지 초기화
+        HttpSession session = request.getSession();
 
         if (coodDTO.getCood_id() != null || coodDTO.getCood_pw() != null) {
             loginMessage = "관리자로 로그인하셨습니다.";
             redirectPage = "../AdminPage/AdminMain.jsp";
+            session.setAttribute("role", "Coordinator");
         } else if (docDTO.getDoc_id() != null || docDTO.getDoc_pw() != null) {
             loginMessage = "의사로 로그인하셨습니다.";
-            redirectPage = "AdminHome.jsp";
+            redirectPage = "../DoctorPage/DoctorMain.jsp";
+            session.setAttribute("role", "Doctor");
         } else if (patDTO.getPat_id() != null || patDTO.getPat_pw() != null) {
             loginMessage = "환자로 로그인하셨습니다.";
             redirectPage = "index.jsp";
+            session.setAttribute("role", "Patient");
         } else {
             request.setAttribute("LoginErrMsg", "아이디/패스워드를 확인하세요");
             request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         }
 
-        HttpSession session = request.getSession();
         session.setAttribute("UserId", userId);
         session.setAttribute("UserName", getUserName(coodDTO, docDTO, patDTO));
         session.setAttribute("UserNum", getUserNum(coodDTO, docDTO, patDTO));

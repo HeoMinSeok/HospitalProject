@@ -70,7 +70,6 @@ public class EditController extends HttpServlet {
 
         PhotoBoardDAO dao = new PhotoBoardDAO();
         int result = dao.updatePost(dto);
-        System.out.println(result);
         dao.close();
 
         if (result == 1) {

@@ -40,14 +40,9 @@
 			<br>
 			<p class="gray viewSection">
 				<a href="../index.jsp">홈</a> &gt;
-				<a href="#" onclick="goBack();">후기 게시판</a> &gt;
-				상세보기
+				<a href="#" onclick="window.location.href = '/mvcboard/list.do';">후기 게시판</a>
+				&gt;상세보기
 			</p>
-			<script>
-				function goBack() {
-					window.history.back();
-				}
-			</script>
 			<div id="fifth">
 				<div class="emojiright">
 					<div class="title-date-wrapper">

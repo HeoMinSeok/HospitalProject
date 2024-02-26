@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+  <script src="js/checkJoin.js"></script>
 </head>
 <body>
 
@@ -27,16 +28,16 @@
           <!-- 아이디 -->
           <div class="row g-3 align-items-center">
             <div class="col-auto">
-              <label for="inputid6" class="col-form-label">아이디 <em> * </em></label>
+              <label for="inputid6" class="col-form-label" id="chkId">아이디 <em> * </em></label>
             </div>
             <div class="col-auto">
               <input type="text" id="inputid6" name="userId" class="form-control" aria-describedby="idHelpInline" required>
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-primary">중복확인</button>
-              <span id="idHelpInline" class="form-text">
-                                    영문, 숫자 조합으로 6~20자 이하로 입력하세요.
-                                </span>
+              <button type="button" class="btn btn-primary" onclick="checkDuplicate()">중복확인</button>
+              <span id="duplicateMessage" style="color: red;"></span>
+<%--                                    영문, 숫자 조합으로 6~20자 이하로 입력하세요.--%>
+
             </div>
           </div><br/>
 
@@ -46,7 +47,7 @@
               <label for="inputPassword6" class="col-form-label">비밀번호 <em> * </em></label>
             </div>
             <div class="col-auto">
-              <input type="password" id="inputPassword6" name="password" class="form-control" aria-describedby="passwordHelpInline" required>
+              <input type="password" id="inputPassword6" name="password" class="form-control" aria-describedby="passwordHelpInline" required style="position: relative">
             </div>
             <div class="col-auto">
                           <span id="passwordHelpInline" class="form-text">
@@ -61,7 +62,7 @@
               <label for="inputPassword6" class="col-form-label">비밀번호 확인 <em> * </em></label>
             </div>
             <div class="col-auto">
-              <input type="password" id="inputPassword6_1" class="form-control" aria-describedby="passwordHelpInline" required>
+              <input type="password" id="inputPassword6_1" class="form-control" aria-describedby="passwordHelpInline" required style="position: relative">
             </div>
             <div class="col-auto">
                           <span id="passwor1dHelpInline" class="form-text">
@@ -111,16 +112,16 @@
             </div>
 
             <div class="col-auto" >
-              <input type="button" id="datepicker" value="생년월일 선택" style="border-radius: 5px; padding: 6px 12px; width: 150px; background-color: white; border: 1px solid #dee2e6;">
+              <input type="button" id="datepicker" value="생년월일 선택" style="border-radius: 5px; padding: 6px 12px; width: 150px; background-color: white; border: 1px solid #dee2e6;" required>
             </div>
             <div class="col-auto">
-              <input type="text" id="yy" name="yy" placeholder="년도" style="border-radius: 5px; padding: 6px 12px; width: 150px; border: 1px solid #dee2e6;">
+              <input type="text" id="yy" name="yy" placeholder="년도" style="border-radius: 5px; padding: 6px 12px; width: 150px; border: 1px solid #dee2e6;" required>
             </div>
             <div class="col-auto">
-              <input type="text" id="mm" name="mm" placeholder="월" style="border-radius: 5px; padding: 6px 12px; width: 150px; border: 1px solid #dee2e6;">
+              <input type="text" id="mm" name="mm" placeholder="월" style="border-radius: 5px; padding: 6px 12px; width: 150px; border: 1px solid #dee2e6;" required>
             </div>
             <div class="col-auto">
-              <input type="text" id="dd" name="dd" placeholder="일" style="border-radius: 5px; padding: 6px 12px; width: 150px; border: 1px solid #dee2e6;">
+              <input type="text" id="dd" name="dd" placeholder="일" style="border-radius: 5px; padding: 6px 12px; width: 150px; border: 1px solid #dee2e6;" required>
             </div>
           </div><br/>
 
@@ -184,6 +185,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 
+
   // 모달 띄우기
   document.addEventListener('DOMContentLoaded', function () {
     var myModal = new bootstrap.Modal(document.getElementById('joinModal'), {
@@ -192,6 +194,7 @@
     myModal.show();
   });
 </script>
+<script src="js/checkJoin.js"></script>
 </body>
 </html>
 

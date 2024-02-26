@@ -153,7 +153,6 @@ public class PhotoBoardDAO extends DBCoonPool {
 
             if (rs.next()) {
                 String userPassword = rs.getString("PAT_PW");
-                System.out.println(userPassword);
                 if (inputPass.equals(userPassword))
                     isPassword = true;
             }
@@ -206,5 +205,29 @@ public class PhotoBoardDAO extends DBCoonPool {
             e.printStackTrace();
         }
         return result;
+    }
+    public List<PhotoBoardDTO> listMembers(String id) {
+        List<PhotoBoardDTO> mywritelist = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM scott.REVIEW_BOARD WHERE PAT_ID_FK = ?";
+            psmt = con.prepareStatement(query);
+            psmt.setString(1,id);
+            rs = psmt.executeQuery();
+            while (rs.next()) {
+                PhotoBoardDTO MyWriteDTO = new PhotoBoardDTO();
+                MyWriteDTO.setRbNum(rs.getString("rb_num"));
+                MyWriteDTO.setRbTitle(rs.getString("rb_title"));
+                MyWriteDTO.setRbPostDate(rs.getDate("rb_postdate"));
+                MyWriteDTO.setRbContents(rs.getString("rb_contents"));
+                mywritelist.add(MyWriteDTO);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        } finally {
+            close();
+        }
+        return mywritelist;
     }
 }

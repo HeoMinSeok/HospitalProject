@@ -52,7 +52,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 
     if (success) {
         resp.setContentType("text/html;charset=UTF-8");
-        resp.getWriter().println("<script>alert('가입 성공'); location.href='index.jsp';</script>");
+        resp.getWriter().println("<script>alert('회원가입에 성공하셨습니다.'); location.href='index.jsp';</script>");
     } else {
         // 회원가입 실패 시 다시 회원가입 폼으로 이동
         resp.setContentType("text/html;charset=UTF-8");

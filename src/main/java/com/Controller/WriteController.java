@@ -50,7 +50,6 @@ public class WriteController extends HttpServlet {
         PhotoBoardDAO dao = new PhotoBoardDAO();
         int result = dao.insertWrite(dto);
         dao.close();
-        System.out.println(result);
 
         if (result == 1)
             resp.sendRedirect("../mvcboard/list.do");

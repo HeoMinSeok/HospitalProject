@@ -17,11 +17,11 @@ public class ViewController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PhotoBoardDAO dao = new PhotoBoardDAO();
-        String rbNum = req.getParameter("rbNum");
+        String rbNum = req.getParameter("rb_num");
         dao.updateVisitCount(rbNum);
         PhotoBoardDTO dto = dao.selectView(rbNum);
         dao.close();
-
+        System.out.println("content:: " + dto.getRbContents());
         dto.setRbContents(dto.getRbContents().replaceAll("\n", "<br/>"));
 
         String ext = null, fileName = dto.getRbSfile();
